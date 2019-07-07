@@ -20,8 +20,9 @@ class NeuroscienceNewsArticleScraper:
         a_p = self.__retrieve_p_elements(soup_html)
         a_tags = self.__retrieve_article_tags(soup_html)
         a_image = self.__retrieve_article_image(soup_html)
+        a_date = self.__retrieve_article_upload_date(soup_html)
         
-        article = NeuroscienceNewsArticle(a_title, a_p, a_tags, a_image)
+        article = NeuroscienceNewsArticle(a_title, a_p, a_tags, a_image, a_date)
 
         return article
 
@@ -36,6 +37,9 @@ class NeuroscienceNewsArticleScraper:
 
     def __retrieve_article_tags(self, soup_html):
         return soup_html.findAll("span", class_="cb-element")
+    
+    def __retrieve_article_upload_date(self, soup_html):
+        return soup_html.find("time", class_="entry-date updated").text
 
     def __retrieve_article_image(self, soup_html):
         img_dict = {}
