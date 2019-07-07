@@ -52,12 +52,13 @@ class NeuroscienceNewsArticleScraper:
         
         # Commence Article Scraping
         a_title = self.__retrieve_article_title(soup_html)
-        a_p = self.__retrieve_p_elements(soup_html)
+        a_p = self.__retrieve_p_elements(soup_html, True)
+        a_raw_p = self.__retrieve_p_elements(soup_html)
         a_tags = self.__retrieve_article_tags(soup_html)
         a_image = self.__retrieve_article_image(soup_html)
         a_date = self.__retrieve_article_upload_date(soup_html)
         
-        article = NeuroscienceNewsArticle(a_title, a_p, a_tags, a_image, a_date)
+        article = NeuroscienceNewsArticle(a_title, a_p, a_raw_p, a_tags, a_image, a_date)
 
         return article
 
