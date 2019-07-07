@@ -1,3 +1,8 @@
 
 .DS_Store
 .ipynb_checkpoints/Scrape Neuronews-checkpoint.ipynb
+neuro_scraper/__pycache__/__init__.cpython-36.pyc
+neuro_scraper/__pycache__/NeuroscienceNewsArticle.cpython-36.pyc
+neuro_scraper/__pycache__/NeuroscienceNewsArticleScrape.cpython-36.pyc
+neuro_scraper/__pycache__/NeuroscienceNewsArticleScraper.cpython-36.pyc
+.ipynb_checkpoints/Scrape Neuroscience News-checkpoint.ipynb

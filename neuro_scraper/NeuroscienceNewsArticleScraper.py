@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
+from .NeuroscienceNewsArticle import NeuroscienceNewsArticle
 
-class ArticleScrape:
+class NeuroscienceNewsArticleScraper:
     
     def __init__(self):
         self.headers = requests.utils.default_headers()
@@ -20,7 +21,7 @@ class ArticleScrape:
         a_tags = self.__retrieve_article_tags(soup_html)
         a_image = self.__retrieve_article_image(soup_html)
         
-        article = Article(a_title, a_p, a_tags, a_image)
+        article = NeuroscienceNewsArticle(a_title, a_p, a_tags, a_image)
 
         return article
 
