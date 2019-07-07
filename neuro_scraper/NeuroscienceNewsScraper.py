@@ -2,6 +2,41 @@ import requests
 from bs4 import BeautifulSoup
 from .NeuroscienceNewsArticle import NeuroscienceNewsArticle
 
+import functools
+import operator
+import requests
+from bs4 import BeautifulSoup
+
+neuro_genres = {
+    "ai" : ("https://neurosciencenews.com/neuroscience-topics/artificial-intelligence-2/", 30),
+    "robotics" : ("https://neurosciencenews.com/neuroscience-topics/robotics-2/", 17),
+    "psychology" : ("https://neurosciencenews.com/neuroscience-topics/psychology/", 313),
+    "neurology" : ("https://neurosciencenews.com/neuroscience-topics/neurology/", 296),
+    "neuroscience" : ("https://neurosciencenews.com/neuroscience-topics/neuroscience/", 543),
+}
+
+class NeuroscienceNewsSiteScraper:
+    
+    def __init__(self):
+        self.headers = requests.utils.default_headers()
+        self.headers.update({
+            'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
+        })
+
+    def __get_article_urls(self, page):
+        r = requests.get(page)
+        raw_html = r.content
+        soup_html = BeautifulSoup(raw_html, "html.parser")
+        
+        return [article.a['href'] for article in soup_html.findAll("div", class_="cb-meta clearfix")]
+
+    def scrape_genre_for_article_urls(self, genre_url, page_amount):
+        page_num = "page/{num}/"
+        url = genre_url+page_num
+        pages = [url.format(num=page) for page in range(1, page_amount+1)]
+        urls_from_pages = [self.__get_article_urls(page) for page in pages]
+        return functools.reduce(operator.iconcat, urls_from_pages, [])
+
 class NeuroscienceNewsArticleScraper:
     
     def __init__(self):
