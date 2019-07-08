@@ -82,3 +82,27 @@ Error:'NoneType' object has no attribute 'a'
 Time:07/07/2019 | 20:54:51
 ----------------------------------------------------------------------------------------------------
 
+URL:https://neurosciencenews.com/neurobotics-nao-positive-response-292/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 21:00:00
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/human-olfaction-6650/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 21:00:07
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/first-epilepsy-drug-treatment-response-signal-future-seizures-chances/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 21:00:13
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/sleep-restriction-oxidative-stress-1755/
+Error Name=TypeError
+Error:'NoneType' object is not subscriptable
+Time:07/07/2019 | 21:00:18
+----------------------------------------------------------------------------------------------------
+

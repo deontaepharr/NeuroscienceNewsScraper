@@ -51,11 +51,11 @@ class NeuroscienceNewsArticleScraper:
         })
 
     def scrape_article(self, url):
-        r = requests.get(url, self.__headers)
-        raw_html = r.content
-        soup_html = BeautifulSoup(raw_html, 'html.parser')
         
         try:
+            r = requests.get(url=url, headers=self.__headers, verify=False)
+            raw_html = r.content
+            soup_html = BeautifulSoup(raw_html, 'html.parser')
             # Commence Article Scraping
             a_title = self.__retrieve_article_title(soup_html)
             a_p = self.__retrieve_p_elements(soup_html, True)
