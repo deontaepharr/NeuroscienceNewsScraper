@@ -1,0 +1,84 @@
+URL:https://neurosciencenews.com/first-epilepsy-drug-treatment-response-signal-future-seizures-chances/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:51:37
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/sleep-restriction-oxidative-stress-1755/
+Error Name=TypeError
+Error:'NoneType' object is not subscriptable
+Time:07/07/2019 | 20:51:48
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/depression-pregnancy-psychology-4291/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:52:21
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/brain-function-measure-aging-burden-nations/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:52:23
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/self-made-eye-formation-optic-cup-embryonic-stem-cells/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:52:26
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/stuttering-blood-flow-brocas-5853/
+Error Name=TypeError
+Error:'NoneType' object is not subscriptable
+Time:07/07/2019 | 20:52:27
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/brain-activity-profiles-decisions-brain-844/
+Error Name=TypeError
+Error:'NoneType' object is not subscriptable
+Time:07/07/2019 | 20:52:59
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/freeway-air-pollution-bad-mouse-brain-cells-neurons-alzheimers-disease/
+Error Name=TypeError
+Error:'NoneType' object is not subscriptable
+Time:07/07/2019 | 20:53:10
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/neuroscience-research-new-role-idh1-gene-mutation-brain-cancer/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:53:32
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/acetylcholine-optimal-mental-state-2746/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:54:06
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/memory-formation-new-theory-7796/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:54:13
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/former-baseball-pitcher-neuroscientist-caspase-6/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:54:35
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/bmi-brain-language-7779/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:54:46
+----------------------------------------------------------------------------------------------------
+
+URL:https://neurosciencenews.com/pain-potassium-channels-nociceptors/
+Error Name=AttributeError
+Error:'NoneType' object has no attribute 'a'
+Time:07/07/2019 | 20:54:51
+----------------------------------------------------------------------------------------------------
+
