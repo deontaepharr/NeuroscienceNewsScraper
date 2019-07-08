@@ -19,3 +19,4 @@ neuroscience_news/__pycache__/NeuroscienceNewsArticleScraper.cpython-36.pyc
 neuroscience_news/__pycache__/NeuroscienceNewsScraper.cpython-36.pyc
 neuroscience_news/__pycache__/NeuroscienceNewsScraper.cpython-37.pyc
 data/images
+article_errors.txt

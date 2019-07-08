@@ -55,7 +55,6 @@ class NeuroscienceNewsMongoConnector():
         n_img = NeuroscienceNewsImage(
             file_path = self.__save_neuro_article_image(article.image["link"]),
             url_link = article.image["link"], 
-            alt_text = article.image["alt"],  
             caption  = article.image["text"]
         )
 

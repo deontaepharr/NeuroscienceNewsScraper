@@ -3,7 +3,6 @@ from mongoengine import Document, EmbeddedDocument, StringField, ListField, Embe
 class NeuroscienceNewsImage(EmbeddedDocument):
     file_path = StringField(required=True)
     url_link = StringField(required=True)
-    alt_text = StringField(required=True)
     caption = StringField(required=True)
     
 class NeuroscienceNewsArticle(Document):

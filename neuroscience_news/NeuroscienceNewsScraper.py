@@ -11,6 +11,8 @@ from pathlib import Path
 
 from datetime import datetime
 
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 neuro_genres = {
     "ai" : ("https://neurosciencenews.com/neuroscience-topics/artificial-intelligence-2/", 30),
@@ -50,12 +52,14 @@ class NeuroscienceNewsArticleScraper:
             'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
         })
 
-    def scrape_article(self, url):
+    def get_article_html(self, url):
+        return requests.get(url=url, headers=self.__headers, verify=False).content
+    
+    def scrape_article(self, raw_html):
         
         try:
-            r = requests.get(url=url, headers=self.__headers, verify=False)
-            raw_html = r.content
             soup_html = BeautifulSoup(raw_html, 'html.parser')
+            
             # Commence Article Scraping
             a_title = self.__retrieve_article_title(soup_html)
             a_p = self.__retrieve_p_elements(soup_html, True)
@@ -63,7 +67,7 @@ class NeuroscienceNewsArticleScraper:
             a_tags = self.__retrieve_article_tags(soup_html)
             a_image = self.__retrieve_article_image(soup_html)
             a_date = self.__retrieve_article_upload_date(soup_html)
-
+            
             article = NeuroscienceNewsArticle(a_title, a_p, a_raw_p, a_tags, a_image, a_date)
 
             return article
@@ -96,15 +100,12 @@ class NeuroscienceNewsArticleScraper:
 
     def __retrieve_article_image(self, soup_html):
         img_dict = {}
-        img_tag = soup_html.find(class_='wp-caption')
-
+        
         # Information to retrieve
-        img_link = img_tag.a['href']
-        img_alt = img_tag.img['alt']
-        img_text = img_tag.text
+        img_link = soup_html.find("meta", property="og:image:secure_url")['content']
+        img_text = soup_html.find("p", class_="wp-caption-text").text
 
         img_dict['link'] = img_link
-        img_dict['alt'] = img_alt
         img_dict['text'] = img_text
 
         return img_dict
