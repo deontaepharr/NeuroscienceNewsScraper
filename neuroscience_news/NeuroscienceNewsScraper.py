@@ -40,13 +40,13 @@ class NeuroscienceNewsSiteScraper:
 class NeuroscienceNewsArticleScraper:
     
     def __init__(self):
-        self.headers = requests.utils.default_headers()
-        self.headers.update({
+        self.__headers = requests.utils.default_headers()
+        self.__headers.update({
             'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
         })
 
     def scrape_article(self, url):
-        r = requests.get(url, self.headers)
+        r = requests.get(url, self.__headers)
         raw_html = r.content
         soup_html = BeautifulSoup(raw_html, 'html.parser')
         
@@ -69,10 +69,10 @@ class NeuroscienceNewsArticleScraper:
         if get_text:
             return [p.text for p in soup_html.findAll('p')][:-3]
 
-        return soup_html.findAll('p')[:-3]
+        return [str(p) for p in soup_html.findAll('p')[:-3]]
 
     def __retrieve_article_tags(self, soup_html):
-        return soup_html.findAll("span", class_="cb-element")
+        return [tag.text for tag in soup_html.findAll("span", class_="cb-element")]
     
     def __retrieve_article_upload_date(self, soup_html):
         return soup_html.find("time", class_="entry-date updated").text

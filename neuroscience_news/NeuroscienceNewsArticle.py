@@ -7,7 +7,3 @@ class NeuroscienceNewsArticle:
         self.tags = tags
         self.image = image
         self.date_uploaded = date_uploaded
-        
-    def __str__(self):
-        return "Article -- (Title: {},\n\nBody Text: {},\n\nTags: {},\n\nImage: {})" \
-                .format(self.title, self.body_text, self.tags, self.image)

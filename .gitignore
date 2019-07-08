@@ -7,3 +7,15 @@ neuro_scraper/__pycache__/NeuroscienceNewsArticleScrape.cpython-36.pyc
 neuro_scraper/__pycache__/NeuroscienceNewsArticleScraper.cpython-36.pyc
 .ipynb_checkpoints/Scrape Neuroscience News-checkpoint.ipynb
 neuro_scraper/__pycache__/NeuroscienceNewsScraper.cpython-36.pyc
+mongo_processor/__pycache__/__init__.cpython-37.pyc
+mongo_processor/__pycache__/NeuroscienceNewsArticle.cpython-37.pyc
+mongo_processor/__pycache__/NeuroscienceNewsMongoConnector.cpython-37.pyc
+neuroscience_news/__pycache__/__init__.cpython-36.pyc
+neuroscience_news/__pycache__/__init__.cpython-37.pyc
+neuroscience_news/__pycache__/NeuroscienceNewsArticle.cpython-36.pyc
+neuroscience_news/__pycache__/NeuroscienceNewsArticle.cpython-37.pyc
+neuroscience_news/__pycache__/NeuroscienceNewsArticleScrape.cpython-36.pyc
+neuroscience_news/__pycache__/NeuroscienceNewsArticleScraper.cpython-36.pyc
+neuroscience_news/__pycache__/NeuroscienceNewsScraper.cpython-36.pyc
+neuroscience_news/__pycache__/NeuroscienceNewsScraper.cpython-37.pyc
+data/images
