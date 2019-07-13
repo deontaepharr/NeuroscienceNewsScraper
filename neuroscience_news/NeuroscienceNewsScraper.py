@@ -53,38 +53,38 @@ class NeuroscienceNewsArticleScraper:
         })
 
     def get_article_html(self, url):
-        return requests.get(url=url, headers=self.__headers, verify=False).content
+        try:
+            return requests.get(url=url, headers=self.__headers, verify=False).content
+        except Exception as e:
+            pass
     
     def scrape_article(self, raw_html):
-        
-        try:
+        if raw_html is not None:
+            
             soup_html = BeautifulSoup(raw_html, 'html.parser')
-            
-            # Commence Article Scraping
-            a_title = self.__retrieve_article_title(soup_html)
-            a_p = self.__retrieve_p_elements(soup_html, True)
-            a_raw_p = self.__retrieve_p_elements(soup_html)
-            a_tags = self.__retrieve_article_tags(soup_html)
-            a_image = self.__retrieve_article_image(soup_html)
-            a_date = self.__retrieve_article_upload_date(soup_html)
-            
-            article = NeuroscienceNewsArticle(a_title, a_p, a_raw_p, a_tags, a_image, a_date)
 
-            return article
-    
-        except Exception as e:
-            cwd = Path.cwd()
-            error_file_path = cwd.joinpath("article_errors.txt")
-            with open(error_file_path, 'a') as error_file:
-                except_name = type(e).__name__
-                date_time = datetime.now()
-                curr_time = date_time.strftime("%m/%d/%Y | %H:%M:%S")
-                divider = "----------"*10
-                
-                error_file.write("URL:{url}\nError Name={except_name}\nError:{error}\nTime:{time}\n{divider}\n\n" \
-                                 .format(url=url, except_name=except_name, error=str(e), time=curr_time, divider=divider))                                 
+            try:
+                # Commence Article Scraping
+                a_title = self.__retrieve_article_title(soup_html)
+                a_p = self.__retrieve_p_elements(soup_html, True)
+                a_raw_p = self.__retrieve_p_elements(soup_html)
+                a_tags = self.__retrieve_article_tags(soup_html)
+                a_image = self.__retrieve_article_image(soup_html)
+                a_date = self.__retrieve_article_upload_date(soup_html)
+                a_url = self.__retrieve_article_url(soup_html)
+
+                article = NeuroscienceNewsArticle(a_title, a_p, a_raw_p, a_tags, a_image, a_date, a_url)
+
+                return article
+
+            except Exception as e:
+                pass
+            
     def __retrieve_article_title(self, soup_html):
         return soup_html.find('title').text
+    
+    def __retrieve_article_url(self, soup_html):
+        return soup_html.find("meta", property="og:url")['content']
 
     def __retrieve_p_elements(self, soup_html, get_text=False):
         if get_text:

@@ -2,11 +2,10 @@ from .NeuroscienceNewsArticle import NeuroscienceNewsArticle, NeuroscienceNewsIm
 
 from pathlib import Path
 from urllib.parse import urlparse
+from joblib import Parallel, delayed
 
 from PIL import Image
 import requests
-
-from datetime import datetime
 
 from mongoengine import connect
 
@@ -22,33 +21,33 @@ class NeuroscienceNewsMongoConnector():
             mongo_article.save()
             
         else:
-            mongo_articles = [self.__neuroscience_news_article_for_mongo(article) \
-                                for article in articles]
+            mongo_articles = Parallel(n_jobs=-1) \
+                             (delayed(self.__neuroscience_news_article_for_mongo)(article) \
+                             for article in articles)
             
             NeuroscienceNewsArticle.objects.insert(mongo_articles)
 
     def __save_neuro_article_image(self, img_url):
-        img_loc_base = Path.cwd().joinpath("data/images")
+        try:
+            img_loc_base = Path.cwd().joinpath("data/images")
 
-        if not img_loc_base.exists():
-            img_loc_base.mkdir(exist_ok=True)
+            if not img_loc_base.exists():
+                img_loc_base.mkdir(exist_ok=True)
 
-        # Parse URL for info
-        url_parsed = urlparse(img_url)
-        file_name = Path(url_parsed.path).name
+            # Parse URL for info
+            url_parsed = urlparse(img_url)
+            file_name = Path(url_parsed.path).name
 
-        # Current Time
-        date_time = datetime.now()
-        curr_time = date_time.strftime("%m%d%Y_%H%M%S_")
+            # Final Path
+            img_file_path = img_loc_base.joinpath(file_name)
 
-        # Final Path
-        img_file_path = img_loc_base.joinpath(curr_time+file_name)
+            # Download Image
+            n_img = Image.open(requests.get(img_url, stream = True).raw)
+            n_img.save(img_file_path)
 
-        # Download Image
-        n_img = Image.open(requests.get(img_url, stream = True).raw)
-        n_img.save(img_file_path)
-
-        return str(img_file_path)
+            return str(img_file_path)
+        except Exception:
+            pass
 
     def __neuroscience_news_article_for_mongo(self, article):
 
@@ -64,7 +63,8 @@ class NeuroscienceNewsMongoConnector():
             raw_body_text = article.raw_body_text,
             tags = article.tags,
             image = n_img,
-            date_uploaded = article.date_uploaded
+            date_uploaded = article.date_uploaded,
+            article_url = article.article_url
         )
 
         return n_article

@@ -20,3 +20,7 @@ neuroscience_news/__pycache__/NeuroscienceNewsScraper.cpython-36.pyc
 neuroscience_news/__pycache__/NeuroscienceNewsScraper.cpython-37.pyc
 data/images
 article_errors.txt
+data/numpy_data/article_objs.npy
+data/numpy_data/article_htmls.npy
+data/MongoDB/neuroscience_news_article.bson
+data/MongoDB/neuroscience_news_article.metadata.json

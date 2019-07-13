@@ -12,3 +12,4 @@ class NeuroscienceNewsArticle(Document):
     tags = ListField(StringField(), required=True)
     image = EmbeddedDocumentField(NeuroscienceNewsImage)
     date_uploaded = StringField(required=True)
+    article_url = StringField(required=True)
