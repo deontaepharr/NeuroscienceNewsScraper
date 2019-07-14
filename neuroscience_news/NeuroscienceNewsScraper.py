@@ -4,15 +4,10 @@ from .NeuroscienceNewsArticle import NeuroscienceNewsArticle
 
 import functools
 import operator
-import requests
-from bs4 import BeautifulSoup
 
 from pathlib import Path
 
 from datetime import datetime
-
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 neuro_genres = {
     "ai" : ("https://neurosciencenews.com/neuroscience-topics/artificial-intelligence-2/", 30),
