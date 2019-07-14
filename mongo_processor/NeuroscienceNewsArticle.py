@@ -1,5 +1,8 @@
 from mongoengine import Document, EmbeddedDocument, StringField, ListField, EmbeddedDocumentField
 
+collection_name = "neuroscience_news_article"
+
+
 class NeuroscienceNewsImage(EmbeddedDocument):
     file_path = StringField(required=True)
     url_link = StringField(required=True)
@@ -13,3 +16,8 @@ class NeuroscienceNewsArticle(Document):
     image = EmbeddedDocumentField(NeuroscienceNewsImage)
     date_uploaded = StringField(required=True)
     article_url = StringField(required=True)
+    
+    meta = {
+        'collection': collection_name
+    }
+    
