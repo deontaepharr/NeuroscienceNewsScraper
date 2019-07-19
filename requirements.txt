@@ -1,6 +1,6 @@
 mongoengine==0.18.2
 pathlib==1.0.1
-urllib3==1.24.1
+urllib3==1.24.2
 joblib==0.13.2
 Pillow==5.4.1
 requests==2.21.0
