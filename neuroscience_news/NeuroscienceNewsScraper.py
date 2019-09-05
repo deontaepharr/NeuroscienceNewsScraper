@@ -10,11 +10,11 @@ from pathlib import Path
 from datetime import datetime
 
 neuro_genres = {
-    "ai" : ("https://neurosciencenews.com/neuroscience-topics/artificial-intelligence-2/", 30),
-    "robotics" : ("https://neurosciencenews.com/neuroscience-topics/robotics-2/", 17),
-    "psychology" : ("https://neurosciencenews.com/neuroscience-topics/psychology/", 313),
-    "neurology" : ("https://neurosciencenews.com/neuroscience-topics/neurology/", 296),
-    "neuroscience" : ("https://neurosciencenews.com/neuroscience-topics/neuroscience/", 543),
+    "ai" : ("https://neurosciencenews.com/neuroscience-topics/artificial-intelligence-2/", 31),
+    "robotics" : ("https://neurosciencenews.com/neuroscience-topics/robotics-2/", 18),
+    "psychology" : ("https://neurosciencenews.com/neuroscience-topics/psychology/", 328),
+    "neurology" : ("https://neurosciencenews.com/neuroscience-topics/neurology/", 307),
+    "neuroscience" : ("https://neurosciencenews.com/neuroscience-topics/neuroscience/", 579),
 }
 
 class NeuroscienceNewsSiteScraper:
@@ -29,6 +29,9 @@ class NeuroscienceNewsSiteScraper:
         r = requests.get(page)
         raw_html = r.content
         soup_html = BeautifulSoup(raw_html, "html.parser")
+        
+        if 'psychology' in page:
+            return [article.a['href'] for article in soup_html.findAll("div", class_="cb-article-meta")]
         
         return [article.a['href'] for article in soup_html.findAll("div", class_="cb-meta clearfix")]
 

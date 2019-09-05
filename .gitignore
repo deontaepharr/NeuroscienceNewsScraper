@@ -19,6 +19,8 @@ neuroscience_news/__pycache__/NeuroscienceNewsArticleScraper.cpython-36.pyc
 neuroscience_news/__pycache__/NeuroscienceNewsScraper.cpython-36.pyc
 neuroscience_news/__pycache__/NeuroscienceNewsScraper.cpython-37.pyc
 data/images
+data/html
+data/MongoDB
 article_errors.txt
 data/numpy_data/article_objs.npy
 data/numpy_data/article_htmls.npy
