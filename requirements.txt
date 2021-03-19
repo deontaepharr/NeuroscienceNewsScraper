@@ -2,7 +2,7 @@ mongoengine==0.18.2
 pathlib==1.0.1
 urllib3==1.24.2
 joblib==0.13.2
-Pillow==5.4.1
+Pillow==8.1.1
 requests==2.21.0
 beautifulsoup4==4.7.1
 Flask==1.0.2
